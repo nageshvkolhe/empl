@@ -1,11 +1,11 @@
-#! /bin/bash
-
+#! /bin/bash -x
 IS_PRESENT=1
-
+EMP_RATE_PER_HR=20
 empCheck=$(( RANDOM % 2 ))
 if [ $empCheck -eq $IS_PRESENT ]
 then
-     echo "Employee is Present"
+     empHrs=8
 else
-     echo "Employee is Abscent"
+     empHrs=0
 fi
+salary=$(( EMP_RATE_PER_HR * empHrs ))
