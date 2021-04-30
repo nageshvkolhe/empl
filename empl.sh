@@ -2,13 +2,17 @@
 IS_PRESENT_FULL=1
 IS_PRESENT_HALF=2
 EMP_RATE_PER_HR=20
-empCheck=$(( RANDOM % 3 ))
-if [ $empCheck -eq $IS_PRESENT_FULL ]
-then
-     empHrs=8
-elif [ $empCheck -eq $IS_PRESENT_HALF ]
-then
-     empHrs=4
-else
-     empHrs=0
-fi
+MAX_wORKING_DAYS=20
+
+for(( counter=1; counter<=$MAX_WORKING_DAYS; counter++ ))
+do
+        empCheck=$(( RANDOM % 3 ))
+
+        case  $empcheck in
+        $IS_PRESENT_FULL)empHrs=8;;
+       $IS_PRESENT_HALF)empHrs=4;;
+                      *)empHrs=0;;
+        esac
+        salary=$(( $EMP_RATE_PER_HR * $empHrs ))
+done
+
